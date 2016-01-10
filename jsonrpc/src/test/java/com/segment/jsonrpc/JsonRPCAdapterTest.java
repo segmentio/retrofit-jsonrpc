@@ -7,6 +7,8 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
+import okhttp3.mockwebserver.MockResponse;
+import okhttp3.mockwebserver.MockWebServer;
 import org.junit.Test;
 import retrofit2.Call;
 import retrofit2.MoshiConverterFactory;
@@ -29,7 +31,6 @@ public class JsonRPCAdapterTest {
   }
 
   @Test public void foo() throws IOException {
-    /*
     MockWebServer server = new MockWebServer();
     server.enqueue(new MockResponse()
         .setBody("{"
@@ -39,8 +40,6 @@ public class JsonRPCAdapterTest {
         ));
     server.start();
     HttpUrl baseUrl = server.url("/");
-    */
-    HttpUrl baseUrl = HttpUrl.parse("http://localhost:1234/");
 
     assertThat("foo").isEqualToIgnoringCase("foo");
 
