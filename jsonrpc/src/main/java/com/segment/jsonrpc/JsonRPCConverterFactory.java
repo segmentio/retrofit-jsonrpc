@@ -2,9 +2,7 @@ package com.segment.jsonrpc;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;
-import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.nio.charset.Charset;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.*;
@@ -19,21 +17,21 @@ public class JsonRPCConverterFactory extends Converter.Factory {
   public Converter<ResponseBody, ?> responseBodyConverter(Type type,
       Annotation[] annotations,
       Retrofit retrofit) {
-    if (Types.getRawType(type) != JsonRPCResponse.class) {
+    if (!Utils.isAnnotationPresent(annotations, JsonRPC.class)) {
       return null;
     }
 
-    final Converter<ResponseBody, JsonRPCResponse> delegate =
-        retrofit.nextResponseBodyConverter(this, type, annotations);
+    Type rpcType = Types.newParameterizedType(JsonRPCResponse.class, type);
+    Converter<ResponseBody, JsonRPCResponse> delegate =
+        retrofit.nextResponseBodyConverter(this, rpcType, annotations);
     //noinspection unchecked
-    return new JSONRPCResponseBodyConverter(delegate);
+    return new JsonRPCResponseBodyConverter(delegate);
   }
 
-  static class JSONRPCResponseBodyConverter<T> implements Converter<ResponseBody, T> {
-    private static final Charset UTF8 = Charset.forName("UTF-8");
+  static class JsonRPCResponseBodyConverter<T> implements Converter<ResponseBody, T> {
     final Converter<ResponseBody, JsonRPCResponse<T>> delegate;
 
-    JSONRPCResponseBodyConverter(Converter<ResponseBody, JsonRPCResponse<T>> delegate) {
+    JsonRPCResponseBodyConverter(Converter<ResponseBody, JsonRPCResponse<T>> delegate) {
       this.delegate = delegate;
     }
 
@@ -56,17 +54,17 @@ public class JsonRPCConverterFactory extends Converter.Factory {
       return null;
     }
 
-    final Converter<JsonRPCRequest, RequestBody> delegate =
+    Converter<JsonRPCRequest, RequestBody> delegate =
         retrofit.nextRequestBodyConverter(this, JsonRPCRequest.class, annotations);
     //noinspection unchecked
-    return new JSONRPCRequestBodyConverter(method, delegate);
+    return new JsonRPCRequestBodyConverter(method, delegate);
   }
 
-  static class JSONRPCRequestBodyConverter<T> implements Converter<T, RequestBody> {
+  static class JsonRPCRequestBodyConverter<T> implements Converter<T, RequestBody> {
     final String method;
     final Converter<JsonRPCRequest, RequestBody> delegate;
 
-    JSONRPCRequestBodyConverter(String method, Converter<JsonRPCRequest, RequestBody> delegate) {
+    JsonRPCRequestBodyConverter(String method, Converter<JsonRPCRequest, RequestBody> delegate) {
       this.method = method;
       this.delegate = delegate;
     }
