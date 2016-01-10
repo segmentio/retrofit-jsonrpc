@@ -13,6 +13,10 @@ public class JsonRPCConverterFactory extends Converter.Factory {
     return new JsonRPCConverterFactory();
   }
 
+  private JsonRPCConverterFactory() {
+    // Private constructor.
+  }
+
   @Override
   public Converter<ResponseBody, ?> responseBodyConverter(Type type,
       Annotation[] annotations,
