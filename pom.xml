@@ -47,7 +47,7 @@
 
     <!-- Dependencies -->
     <okhttp.version>3.0.0-RC1</okhttp.version>
-    <retrofit.version>2.0.0-beta3</retrofit.version>
+    <retrofit.version>2.0.0-SNAPSHOT</retrofit.version>
     <animal.sniffer.version>1.14</animal.sniffer.version>
 
     <!-- Test Dependencies -->

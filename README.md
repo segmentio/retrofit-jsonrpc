@@ -8,8 +8,8 @@ Declare your RPC Service.
 
 ```java
 interface MultiplicationService {
-    @JsonRPC @POST("/rpc")
-    Call<Integer> multiply(@Method("Arith.Multiply") @Body MultiplicationArgs args);
+    @JsonRPC("Arith.Multiply") @POST("/rpc")
+    Call<Integer> multiply(@Body MultiplicationArgs args);
 }
 ```
 
