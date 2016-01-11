@@ -8,13 +8,20 @@ final class Utils {
   }
 
   /** Returns true if {@code annotations} contains an instance of {@code cls}. */
-  static boolean isAnnotationPresent(Annotation[] annotations,
-      Class<? extends Annotation> cls) {
+  static <T extends Annotation> boolean isAnnotationPresent(Annotation[] annotations,
+      Class<T> cls) {
+    return findAnnotation(annotations, cls) != null;
+  }
+
+  /** Returns an instance of {@code cls} if {@code annotations} contains an instance. */
+  static <T extends Annotation> T findAnnotation(Annotation[] annotations,
+      Class<T> cls) {
     for (Annotation annotation : annotations) {
       if (cls.isInstance(annotation)) {
-        return true;
+        //noinspection unchecked
+        return (T) annotation;
       }
     }
-    return false;
+    return null;
   }
 }

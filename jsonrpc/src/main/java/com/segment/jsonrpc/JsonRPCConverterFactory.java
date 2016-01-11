@@ -48,15 +48,11 @@ public class JsonRPCConverterFactory extends Converter.Factory {
   @Override
   public Converter<?, RequestBody> requestBodyConverter(Type type, Annotation[] annotations,
       Retrofit retrofit) {
-    String method = null;
-    for (Annotation annotation : annotations) {
-      if (annotation instanceof Method) {
-        method = ((Method) annotation).value();
-      }
-    }
-    if (method == null) {
+    Method methodAnnotation = Utils.findAnnotation(annotations, Method.class);
+    if (methodAnnotation == null) {
       return null;
     }
+    String method = methodAnnotation.value();
 
     Converter<JsonRPCRequest, RequestBody> delegate =
         retrofit.nextRequestBodyConverter(this, JsonRPCRequest.class, annotations);
