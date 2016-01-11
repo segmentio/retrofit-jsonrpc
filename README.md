@@ -1,6 +1,6 @@
-# java-jsonrpc
+# retrofit-jsonrpc
 
-Pluggable JSON-RPC over HTTP client.
+JSON-RPC with Retrofit.
 
 # Usage
 

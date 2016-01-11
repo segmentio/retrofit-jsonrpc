@@ -6,14 +6,14 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.segment.jsonrpc</groupId>
+    <groupId>com.segment.retrofit.jsonrpc</groupId>
     <artifactId>parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
   <artifactId>jsonrpc</artifactId>
-  <name>Json-RPC</name>
+  <name>Json-RPC Converter Factory for Retrofit.</name>
 
   <dependencies>
     <dependency>

@@ -25,14 +25,14 @@
     <version>7</version>
   </parent>
 
-  <groupId>com.segment.jsonrpc</groupId>
+  <groupId>com.segment.retrofit.jsonrpc</groupId>
   <artifactId>parent</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Json-RPC (Parent)</name>
-  <description>Json-RPC over HTTP client.</description>
-  <url>http://github.com/segmentio/java-jsonrpc/</url>
+  <description>Json-RPC with Retrofit.</description>
+  <url>http://github.com/segmentio/retrofit-jsonrpc/</url>
 
   <modules>
     <module>jsonrpc</module>
@@ -58,16 +58,16 @@
   </properties>
 
   <scm>
-    <url>http://github.com/segmentio/java-jsonrpc</url>
-    <connection>scm:git:git://github.com/segmentio/java-jsonrpc.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/segmentio/java-jsonrpc.git
+    <url>http://github.com/segmentio/retrofit-jsonrpc</url>
+    <connection>scm:git:git://github.com/segmentio/retrofit-jsonrpc.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/segmentio/retrofit-jsonrpc.git
     </developerConnection>
     <tag>HEAD</tag>
   </scm>
 
   <issueManagement>
     <system>GitHub Issues</system>
-    <url>http://github.com/segmentio/java-jsonrpc/issues</url>
+    <url>http://github.com/segmentio/retrofit-jsonrpc/issues</url>
   </issueManagement>
 
   <licenses>
