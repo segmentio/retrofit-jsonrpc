@@ -48,8 +48,8 @@ public class JsonRPCAdapterTest {
   }
 
   interface MultiplicationService {
-    @JsonRPC @POST("/rpc") Call<Integer>
-    multiply(@Method("Arith.Multiply") @Body MultiplicationArgs args);
+    @JsonRPC @POST("/rpc")
+    Call<Integer> multiply(@Method("Arith.Multiply") @Body MultiplicationArgs args);
   }
 
   @Test public void foo() throws IOException {
