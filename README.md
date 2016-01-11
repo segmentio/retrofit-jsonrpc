@@ -30,7 +30,8 @@ Use Retrofit to build your service.
 MultiplicationService service = retrofit.create(MultiplicationService.class);
 ```
 
-Use your service~
+Use your service.
+
 ```java
 service.multiply(MultiplicationArgs.create(2, 3)).execute().body(); // -> 6
 ```
