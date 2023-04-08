@@ -46,7 +46,7 @@
     <java.version>1.7</java.version>
 
     <!-- Dependencies -->
-    <okhttp.version>3.11.0</okhttp.version>
+    <okhttp.version>3.14.9</okhttp.version>
     <retrofit.version>2.4.0</retrofit.version>
     <animal.sniffer.version>1.16</animal.sniffer.version>
 
